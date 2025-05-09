@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Sample data (features: X, target values: Y)
+X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)
+Y = np.array([2, 4, 5, 4, 5])
+
+# Creating the model
+model = LinearRegression()
+
+# Training the model
+model.fit(X, Y)
+
+# Making predictions
+predictions = model.predict(X)
+
+# Plotting the results
+plt.scatter(X, Y, color='blue', label='Actual Data')
+plt.plot(X, predictions, color='red', label='Regression Line')
+plt.xlabel("X values")
+plt.ylabel("Y values")
+plt.legend()
+plt.show()
+
+# Display model parameters
+print(f"Intercept: {model.intercept_}")
+print(f"Coefficient: {model.coef_[0]}")
